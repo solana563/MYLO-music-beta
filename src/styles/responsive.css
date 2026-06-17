@@ -1,0 +1,159 @@
+@layer base {
+  :root {
+    --touch-target-size: 48px;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+  }
+
+  /* Mobile-first breakpoints */
+  @media (max-width: 479px) {
+    :root {
+      --grid-columns: 1;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 767px) {
+    :root {
+      --grid-columns: 2;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    :root {
+      --grid-columns: 3;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1535px) {
+    :root {
+      --grid-columns: 4;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    :root {
+      --grid-columns: 6;
+    }
+  }
+}
+
+/* Responsive Grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* Touch-friendly targets */
+[data-touch='true'] button,
+[data-touch='true'] [role='button'],
+[data-touch='true'] input,
+[data-touch='true'] textarea {
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
+  padding: calc(var(--touch-target-size) / 4);
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .responsive-container {
+    padding: var(--spacing-sm);
+  }
+
+  /* Stack layout vertically */
+  .flex-row-desktop {
+    flex-direction: column;
+  }
+
+  /* Larger text on mobile */
+  body {
+    font-size: var(--font-size-base);
+  }
+
+  /* Full width inputs on mobile */
+  input,
+  textarea,
+  select {
+    width: 100%;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-on-tablet {
+    display: none;
+  }
+
+  .responsive-container {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1024px) {
+  .hide-on-desktop {
+    display: none;
+  }
+
+  .responsive-container {
+    padding: var(--spacing-lg);
+  }
+
+  /* Show tooltips on desktop only */
+  [data-tooltip] {
+    pointer-events: auto;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .player-full-height {
+    max-height: 60vh;
+  }
+
+  .sidebar-landscape {
+    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* Offline indicator */
+[data-offline='true'] {
+  opacity: 0.9;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode (default) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
