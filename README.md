@@ -1,5 +1,9 @@
 # MYLO Music — Offline Local Music Player
 
+<div align="center">
+
+![MYLO Music Player](./src/imports/102856936.jpg)
+
 A production, offline-first music player for the browser. No streaming, no cloud, no
 mock data — every feature in this repo is backed by real playback, real file scanning,
 and a real persistent database.
