@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![MYLO Music Player](./src/imports/102856936.jpg)
+![MYLO Music Player](./src/imports/1781686229932.png)
 
 A production, offline-first music player for the browser. No streaming, no cloud, no
 mock data — every feature in this repo is backed by real playback, real file scanning,
